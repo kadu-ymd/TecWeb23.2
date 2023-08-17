@@ -8,9 +8,24 @@ def read_file(path):
         return file.read()
     
 def load_data(filename: str):
-    with open(('data/' + filename), 'r') as file:
+    with open(('data/' + filename), 'r', encoding='utf-8') as file:
         return json.load(file)
     
 def load_template(filename: str):
-    with open(("templates/" + filename),"r") as file:
+    with open(("templates/" + filename), "r", encoding="utf-8") as file:
         return str(file.read())
+
+# consertar com if
+
+def build_response(body='', code=200, reason='OK', headers=''):
+    if headers == '' and body == '':
+        response = 'HTTP/1.1 {code} {reason}\n\n'
+    elif body == '':
+        response = 'HTTP/1.1 {code} {reason}\n{headers}\n\n'
+    elif headers == '':
+        response = 'HTTP/1.1 {code} {reason}\n\n{body}'
+    else:
+        response = 'HTTP/1.1 {code} {reason}\n{headers}\n\n{body}'
+    
+    return response.format(body=body, code=code, reason=reason, headers=headers).encode()
+

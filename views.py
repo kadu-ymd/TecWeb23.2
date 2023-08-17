@@ -1,4 +1,4 @@
-from utils import load_data, load_template
+from utils import load_data, load_template, build_response
 from urllib import parse
 import json
 
@@ -18,8 +18,17 @@ def index(request):
 
         for chave_valor in corpo.split('&'):
             chave = chave_valor.split('=')[0]
-            params[chave] = chave_valor.split('=')[1]
-        
+            params[chave] = parse.unquote_plus(chave_valor.split('=')[1])
+
+        lista = load_data('notes.json')
+
+        lista.append(params)
+
+        with open('data/notes.json', 'w', encoding='utf-8') as file:
+            file.write(str(lista).replace("'", '"'))
+
+        return build_response(code=303, reason='See Other', headers='Location: /')
+    
     # Cria uma lista de <li>'s para cada anotação
     # Se tiver curiosidade: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
     note_template = load_template('components/note.html')
@@ -28,9 +37,6 @@ def index(request):
         for dados in load_data('notes.json')
     ]
 
-    if len(params) > 0:
-        notes_li.append(note_template.format(title=params['titulo'], details=params['detalhes']))
-
     notes = '\n'.join(notes_li)
 
-    return load_template('index.html').format(notes=notes).encode()
+    return build_response(body=load_template('index.html').format(notes=notes))
