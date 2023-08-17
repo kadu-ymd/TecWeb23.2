@@ -26,7 +26,7 @@ while True:
     if filepath.is_file():
         response = read_file(filepath)
     elif route == '':
-        response = index()
+        response = index(request)
     else:
         response = bytes()
 
