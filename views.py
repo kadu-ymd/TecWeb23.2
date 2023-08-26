@@ -1,40 +1,34 @@
 from utils import load_data, load_template, build_response
 from urllib import parse
-import json
+from database import *
 
 def index(request):
-    # A string de request sempre começa com o tipo da requisição (ex: GET, POST)
+    # Carregando a base de dados
+    db = Database('teste')
+
     if request.startswith('POST'):
-        request = request.replace('\r', '')  # Remove caracteres indesejados
-        # Cabeçalho e corpo estão sempre separados por duas quebras de linha
+        request = request.replace('\r', '')
         partes = request.split('\n\n')
         corpo = partes[1]
         params = {}
-        # Preencha o dicionário params com as informações do corpo da requisição
-        # O dicionário conterá dois valores, o título e a descrição.
-        # Posteriormente pode ser interessante criar uma função que recebe a
-        # requisição e devolve os parâmetros para desacoplar esta lógica.
-        # Dica: use o método split da string e a função unquote_plus
+        print(partes)
 
-        for chave_valor in corpo.split('&'):
-            chave = chave_valor.split('=')[0]
-            params[chave] = parse.unquote_plus(chave_valor.split('=')[1])
-
-        lista = load_data('notes.json')
-
-        lista.append(params)
-
-        with open('data/notes.json', 'w', encoding='utf-8') as file:
-            file.write(str(lista).replace("'", '"'))
+        # o request não possui um corpo, então não dá para adicionar um item à lista
+        
+        # for item in corpo.split('&'):
+            # print(item)
+            # key = item.split('=')[0]
+            # params[key] = parse.unquote_plus(item.split('=')[1])
+        
+        # Adiciona uma nota à base de dados
+        # db.add(Note(title=params['titulo'], content=params['detalhes']))
 
         return build_response(code=303, reason='See Other', headers='Location: /')
-    
-    # Cria uma lista de <li>'s para cada anotação
-    # Se tiver curiosidade: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
+
     note_template = load_template('components/note.html')
     notes_li = [
-        note_template.format(title=dados['titulo'], details=dados['detalhes'])
-        for dados in load_data('notes.json')
+        note_template.format(title=dados.title, details=dados.content)
+        for dados in load_data(db)
     ]
 
     notes = '\n'.join(notes_li)

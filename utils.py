@@ -1,4 +1,5 @@
 import json
+from database import *
 
 def extract_route(request: str):
     return request.split()[1][1:]
@@ -7,15 +8,16 @@ def read_file(path):
     with open(path, 'rb') as file:
         return file.read()
     
-def load_data(filename: str):
-    with open(('data/' + filename), 'r', encoding='utf-8') as file:
-        return json.load(file)
+# def load_data(name: str):
+#     with open(('data/' + name), 'r', encoding='utf-8') as file:
+#         return json.load(file)
     
+def load_data(database: Database):
+    return database.get_all()
+
 def load_template(filename: str):
     with open(("templates/" + filename), "r", encoding="utf-8") as file:
         return str(file.read())
-
-# consertar com if
 
 def build_response(body='', code=200, reason='OK', headers=''):
     if headers == '' and body == '':
