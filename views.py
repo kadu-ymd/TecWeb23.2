@@ -21,10 +21,13 @@ def index(request):
         db.add(Note(title=params['titulo'], content=params['detalhes']))
 
         return build_response(code=303, reason='See Other', headers='Location: /')
-
+    
+    if request.split()[1][1:7] == 'delete':
+        pass
+    
     note_template = load_template('components/note.html')
     notes_li = [
-        note_template.format(title=dados.title, details=dados.content)
+        note_template.format(title=dados.title, details=dados.content, id=dados.id)
         for dados in load_data(db)
     ]
 

@@ -1,5 +1,11 @@
 <li class="card">
-    <h3 class="card-title">{title}</h3>
+    <div class="card-header">
+        <h3 class="card-title">{title}</h3>
+        <button type="button" class="btn-remove" onclick="location.href='delete/{id}'">
+            <img class="remove" src="img/trash.png"/>
+        </button>
+    </div>
+
     <div class="card-content">
         <p>{details}</p>
     </div>

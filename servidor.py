@@ -1,7 +1,8 @@
 import socket
 from pathlib import Path
-from utils import extract_route, read_file, build_response
+from utils import extract_route, load_template, read_file, build_response
 from views import index
+from database import *
 
 CUR_DIR = Path(__file__).parent
 SERVER_HOST = 'localhost'
@@ -22,11 +23,20 @@ while True:
     print(request)
 
     route = extract_route(request)
+
+    # print(request.split()[1][1:7])
+
     filepath = CUR_DIR / route
     if filepath.is_file():
         response = build_response() + read_file(filepath)
     elif route == '':
         response = index(request)
+    elif request.split()[1][1:7] == 'delete':
+        id = request.split()[1][8:]
+        print(id)
+        Database('notes').delete(id)
+        response = index(request)
+        
     else:
         response = build_response()
 

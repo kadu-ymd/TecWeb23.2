@@ -79,15 +79,34 @@ Algumas informações úteis e dicas:
    transition: width 0.2s ease-out, padding-top 0.2s ease-out;
  }
  
-.btn:hover {
-    background-color: #ffe66b;
-}
+  .btn:hover {
+      background-color: #ffe66b;
+  }
 
- .logo {
-     height: 3rem;
-     padding: 5px;
- }
- 
+  .logo {
+      height: 3rem;
+      padding: 5px;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn-remove {
+    background-color: transparent;
+    border-color: transparent;
+    height: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .remove {
+    width: 1rem;
+    height: auto;
+    padding: 5px;
+  }
+
  .subtitle{
    padding: 10px;
  }

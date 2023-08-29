@@ -8,10 +8,6 @@ def read_file(path):
     with open(path, 'rb') as file:
         return file.read()
     
-# def load_data(name: str):
-#     with open(('data/' + name), 'r', encoding='utf-8') as file:
-#         return json.load(file)
-    
 def load_data(database: Database):
     return database.get_all()
 
@@ -30,4 +26,5 @@ def build_response(body='', code=200, reason='OK', headers=''):
         response = 'HTTP/1.1 {code} {reason}\n{headers}\n\n{body}'
     
     return response.format(body=body, code=code, reason=reason, headers=headers).encode()
+
 
