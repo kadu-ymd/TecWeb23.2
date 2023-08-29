@@ -4,24 +4,21 @@ from database import *
 
 def index(request):
     # Carregando a base de dados
-    db = Database('teste')
+    db = Database('notes')
 
     if request.startswith('POST'):
         request = request.replace('\r', '')
         partes = request.split('\n\n')
         corpo = partes[1]
         params = {}
-        print(partes)
+        
+        for item in corpo.split('&'):
+            print(item)
+            key = item.split('=')[0]
+            params[key] = parse.unquote_plus(item.split('=')[1])
 
-        # o request não possui um corpo, então não dá para adicionar um item à lista
-        
-        # for item in corpo.split('&'):
-            # print(item)
-            # key = item.split('=')[0]
-            # params[key] = parse.unquote_plus(item.split('=')[1])
-        
         # Adiciona uma nota à base de dados
-        # db.add(Note(title=params['titulo'], content=params['detalhes']))
+        db.add(Note(title=params['titulo'], content=params['detalhes']))
 
         return build_response(code=303, reason='See Other', headers='Location: /')
 

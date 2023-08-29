@@ -1,6 +1,6 @@
 from database import *
 
-db = Database('teste')
+db = Database('notes')
 
 note_list = db.get_all()
 
