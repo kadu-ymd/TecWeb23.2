@@ -3,10 +3,6 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-
-function refreshPage() {
-    window.location.reload();
-}
   
   document.addEventListener("DOMContentLoaded", function () {
     // Faz textarea aumentar a altura automaticamente

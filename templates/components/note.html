@@ -1,9 +1,15 @@
-<li class="card">
+<li class="card" id="{id}">
     <div class="card-header">
         <h3 class="card-title">{title}</h3>
-        <button type="button" class="btn-remove" onclick="location.href='delete/{id}'">
-            <img class="remove" src="img/trash.png"/>
-        </button>
+        <form method="post" action="delete" class="form-delete">
+            <input
+                class="btn"
+                type="submit"
+                name="id"
+                value="{id}"
+                >
+            <img class="img-remove" src="img/trash.png" alt="img/trash.png">
+        </form>
     </div>
 
     <div class="card-content">

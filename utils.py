@@ -27,4 +27,5 @@ def build_response(body='', code=200, reason='OK', headers=''):
     
     return response.format(body=body, code=code, reason=reason, headers=headers).encode()
 
-
+def delete_note(database: str, id: int):
+    Database(database).delete(id)

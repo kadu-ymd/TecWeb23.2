@@ -6,24 +6,26 @@ def index(request):
     # Carregando a base de dados
     db = Database('notes')
 
-    if request.startswith('POST'):
+    if request.startswith('POST /'):
         request = request.replace('\r', '')
         partes = request.split('\n\n')
         corpo = partes[1]
         params = {}
-        
+        # print('aaaaaaaaaaa')
+
         for item in corpo.split('&'):
-            print(item)
             key = item.split('=')[0]
             params[key] = parse.unquote_plus(item.split('=')[1])
+        print(params)
 
-        # Adiciona uma nota à base de dados
-        db.add(Note(title=params['titulo'], content=params['detalhes']))
+        # Adiciona ou deleta uma nota
+        if not request.startswith('POST /delete'):
+            db.add(Note(title=params['titulo'], content=params['detalhes']))
+        else:
+            db.delete(int(params['id']))
 
         return build_response(code=303, reason='See Other', headers='Location: /')
     
-    if request.split()[1][1:7] == 'delete':
-        pass
     
     note_template = load_template('components/note.html')
     notes_li = [

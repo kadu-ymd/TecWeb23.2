@@ -1,6 +1,6 @@
 import socket
 from pathlib import Path
-from utils import extract_route, load_template, read_file, build_response
+from utils import delete_note, extract_route, load_template, read_file, build_response
 from views import index
 from database import *
 
@@ -24,22 +24,17 @@ while True:
 
     route = extract_route(request)
 
-    # print(request.split()[1][1:7])
-
     filepath = CUR_DIR / route
     if filepath.is_file():
         response = build_response() + read_file(filepath)
     elif route == '':
         response = index(request)
-    elif request.split()[1][1:7] == 'delete':
-        id = request.split()[1][8:]
-        print(id)
-        Database('notes').delete(id)
+    elif route.startswith('delete'):
         response = index(request)
-        
     else:
         response = build_response()
 
+    
     client_connection.sendall(response)
 
     client_connection.close()
