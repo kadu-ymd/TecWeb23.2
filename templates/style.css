@@ -103,20 +103,6 @@ Algumas informações úteis e dicas:
 
   .img-remove {
     width: 1rem;
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-  
-    overflow: hidden;
-  
-    border-width: 0;
-    outline: none;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-  
-    background-color: #f7d736;
-  
-    transition: background-color 0.3s;
   }
 
   .remove {
@@ -265,10 +251,13 @@ Algumas informações úteis e dicas:
     display: flex;
  }
  
- .btn-remove {
+ .btnremove {
     position: relative;
     display: block;
-    padding: 10px 15px;
+    padding: .5rem .75rem;
+    
+    color: #ffffff;
+    font-weight: bolder;
 
     overflow: hidden;
 
@@ -277,7 +266,14 @@ Algumas informações úteis e dicas:
     border-radius: 2px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 
-    background-color: #f7d736;
+    background-color: #4c4c4c;
+    opacity: 0.4;
 
     transition: background-color 0.3s;
+ }
+
+ .btnremove:hover {
+    opacity: 0.1;
+
+    transition: opacity 0.3s;
  }
