@@ -46,7 +46,7 @@ Algumas informações úteis e dicas:
    transition: background-color 0.3s;
  }
  
- .btn > * {
+ /* .btn > * {
    position: relative;
  }
  
@@ -77,22 +77,191 @@ Algumas informações úteis e dicas:
    padding-top: 120%;
  
    transition: width 0.2s ease-out, padding-top 0.2s ease-out;
- }
+ } */
  
   .btn:hover {
       background-color: #ffe66b;
   }
 
+  /* Header */
+
+  .appbar {
+    background-color: #f7d736;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 8px 3px rgba(0,0,0,0.12), 0 3px 2px rgba(0,0,0,0.24);
+  }
+ 
   .logo {
-      height: 3rem;
-      padding: 5px;
+    height: 3rem;
+    padding: 5px;
   }
   
+  .subtitle{
+    padding: 10px;
+  }
+
+  /* Form index.html e edit.html */
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .edit-container {
+      display: flex;
+      justify-content: space-around;
+      margin: .5rem;
+  }
+
   .header-box {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
   }
+
+  .form-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: .5rem;
+    margin: 2rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 5px;
+    width: 30rem;
+  }
+ 
+  .form-card-title {
+    /* border-color: transparent; */
+    border-radius: .5rem;
+    border-width: .1rem;
+    margin: .5rem;
+    
+    font-size: large;
+    font-weight: bold;
+  }
+
+  .edit-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .add-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+  }
+
+  .autoresize {
+    font-family: 'Roboto', sans-serif;
+    border-color: transparent;
+    padding-top: .5rem;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 2rem 2rem;
+  }
+  
+  .card {
+    padding: .75rem;
+    margin: .75rem;
+    width: 12rem;
+    height: 7rem;
+    border-radius: 5px;
+    background-color: #ead3a7;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+  }
+ 
+  .card h3 {
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Permanent Marker', cursive;
+  }
+  
+  .card-content {
+    display: flex;
+    font-family: 'Permanent Marker', cursive;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+  .card-color-1 {
+    background-color: #ead3a7;
+  }
+  
+  .card-color-2 {
+    background-color: #9de0f5;
+  }
+  
+  .card-color-3 {
+    background-color: #ef89ba;
+  }
+  
+  .card-color-4 {
+    background-color: #fae890;
+  }
+  
+  .card-color-5 {
+    background-color: #abe9c1;
+  }
+  
+  .card-rotation-1 {
+    transform: rotate(2deg);
+  }
+  
+  .card-rotation-2 {
+    transform: rotate(-2deg);
+  }
+  
+  .card-rotation-3 {
+    transform: rotate(3deg);
+  }
+  
+  .card-rotation-4 {
+    transform: rotate(-3deg);
+  }
+  
+  .card-rotation-5 {
+    transform: rotate(4deg);
+  }
+  
+  .card-rotation-6 {
+    transform: rotate(-4deg);
+  }
+  
+  .card-rotation-7 {
+    transform: rotate(2deg);
+  }
+  
+  .card-rotation-8 {
+    transform: rotate(-2deg);
+  }
+  
+  .card-rotation-9 {
+    transform: rotate(3deg);
+  }
+  
+  .card-rotation-10 {
+    transform: rotate(-3deg);
+  }
+  
+  .card-rotation-11 {
+    transform: rotate(4deg);
+  }
+  .btn-remove {
+    background-color: transparent;
+    border-color: transparent;
+    height: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  /* Notes */
 
   .card-header1 {
     display: flex;
@@ -102,15 +271,6 @@ Algumas informações úteis e dicas:
   .card-header2 {
     display: flex;
     justify-content: end;
-  }
-
-
-  .btn-remove {
-    background-color: transparent;
-    border-color: transparent;
-    height: 1rem;
-    cursor: pointer;
-    border-radius: 50%;
   }
 
   .img-remove {
@@ -128,220 +288,38 @@ Algumas informações úteis e dicas:
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
   
     background-color: #f7d736;
-  
-    transition: background-color 0.3s;
-    
+
+    transition: background-color 0.3s ease-in;
   }
 
-  .remove {
-    width: 1rem;
-    height: auto;
-    padding: 5px;
+  .img-remove:hover {
+    background-color: #ffe66b;
   }
 
- .subtitle{
-   padding: 10px;
- }
+  .form-delete {
+      display: flex;
+  }
  
- .appbar {
-   background-color: #f7d736;
-   display: flex;
-   justify-content: flex-start;
-   align-items: center;
-   box-shadow: 0 8px 3px rgba(0,0,0,0.12), 0 3px 2px rgba(0,0,0,0.24);
- }
- 
- .container {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
- }
- 
- .form-card {
-   display: flex;
-   justify-content: center;
-   flex-direction: column;
-   padding: .5rem;
-   margin: 2rem;
-   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-   border-radius: 5px;
-   width: 30rem;
- }
- 
- .form-card-title {
-   /* border-color: transparent; */
-   border-radius: .5rem;
-   border-width: .1rem;
-   margin: .5rem;
-   
-   font-size: large;
-   font-weight: bold;
- }
- 
- .autoresize {
-   font-family: 'Roboto', sans-serif;
-   border-color: transparent;
-   padding-top: .5rem;
- }
- 
- .card-container {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-around;
-   margin: 2rem 2rem;
- }
- 
- .card {
-   padding: .75rem;
-   margin: .75rem;
-   width: 12rem;
-   height: 7rem;
-   border-radius: 5px;
-   background-color: #ead3a7;
-   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
- }
- 
- .card h3 {
-   font-size: large;
-   font-weight: bold;
-   font-family: 'Permanent Marker', cursive;
- }
- 
- .card-content {
-   display: flex;
-   font-family: 'Permanent Marker', cursive;
-   height: 90%;
-   justify-content: center;
-   align-items: center;
- }
- 
- .card-color-1 {
-   background-color: #ead3a7;
- }
- 
- .card-color-2 {
-   background-color: #9de0f5;
- }
- 
- .card-color-3 {
-   background-color: #ef89ba;
- }
- 
- .card-color-4 {
-   background-color: #fae890;
- }
- 
- .card-color-5 {
-   background-color: #abe9c1;
- }
- 
- .card-rotation-1 {
-   transform: rotate(2deg);
- }
- 
- .card-rotation-2 {
-   transform: rotate(-2deg);
- }
- 
- .card-rotation-3 {
-   transform: rotate(3deg);
- }
- 
- .card-rotation-4 {
-   transform: rotate(-3deg);
- }
- 
- .card-rotation-5 {
-   transform: rotate(4deg);
- }
- 
- .card-rotation-6 {
-   transform: rotate(-4deg);
- }
- 
- .card-rotation-7 {
-   transform: rotate(2deg);
- }
- 
- .card-rotation-8 {
-   transform: rotate(-2deg);
- }
- 
- .card-rotation-9 {
-   transform: rotate(3deg);
- }
- 
- .card-rotation-10 {
-   transform: rotate(-3deg);
- }
- 
- .card-rotation-11 {
-   transform: rotate(4deg);
- }
+  /* CSS de tags */
 
- .form-delete {
-    display: flex;
- }
- 
- .btn-remove {
-    position: relative;
-    display: block;
-    padding: .5rem .75rem;
-    
-    color: #ffffff;
-    font-weight: bolder;
+  input {
+      padding-left: .5rem;
+      font-size: 1rem;
+  }
 
-    overflow: hidden;
+  label {
+      margin-top: 1rem;
+  }
 
-    border-width: 0;
-    outline: none;
-    border-radius: 2px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  a {
+      font-weight: normal;
+      color: #000000;
+      font-size: 1rem;
+      text-decoration: none;
+  }
 
-    background-color: #4c4c4c;
-    opacity: 0.4;
-
-    transition: background-color 0.3s;
- }
-
- .btn-remove:hover {
-    opacity: 0.1;
-    transition: opacity 0.3s;
- }
-
- .edit-container {
-    display: flex;
-    justify-content: space-evenly;
- }
-
- input {
-    padding-left: .5rem;
-    font-size: 1rem;
- }
-
- label {
-    margin-top: 1rem;
- }
-
- ::placeholder {
+  ::placeholder {
     font-size: 1rem;
     color: #4c4c4c;
     opacity: .5;
- }
-
- .edit-title {
-    font-size: 1.5rem;
-    font-weight: bold;
- }
-
- .add-title {
-    font-size: 1.5rem;
-    font-weight: bold;
- }
-
- a {
-    font-weight: normal;
-    color: #000000;
-    font-size: 1rem;
-    text-decoration: none;
- }
+  }
