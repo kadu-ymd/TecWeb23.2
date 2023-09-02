@@ -88,10 +88,22 @@ Algumas informações úteis e dicas:
       padding: 5px;
   }
   
-  .card-header {
+  .header-box {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
+
+  .card-header1 {
+    display: flex;
+    justify-content: start;
+  }
+
+  .card-header2 {
+    display: flex;
+    justify-content: end;
+  }
+
 
   .btn-remove {
     background-color: transparent;
@@ -103,6 +115,22 @@ Algumas informações úteis e dicas:
 
   .img-remove {
     width: 1rem;
+    height: 1rem;
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+  
+    overflow: hidden;
+  
+    border-width: 0;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  
+    background-color: #f7d736;
+  
+    transition: background-color 0.3s;
+    
   }
 
   .remove {
@@ -141,7 +169,11 @@ Algumas informações úteis e dicas:
  }
  
  .form-card-title {
-   border-color: transparent;
+   /* border-color: transparent; */
+   border-radius: .5rem;
+   border-width: .1rem;
+   margin: .5rem;
+   
    font-size: large;
    font-weight: bold;
  }
@@ -251,7 +283,7 @@ Algumas informações úteis e dicas:
     display: flex;
  }
  
- .btnremove {
+ .btn-remove {
     position: relative;
     display: block;
     padding: .5rem .75rem;
@@ -272,8 +304,44 @@ Algumas informações úteis e dicas:
     transition: background-color 0.3s;
  }
 
- .btnremove:hover {
+ .btn-remove:hover {
     opacity: 0.1;
-
     transition: opacity 0.3s;
+ }
+
+ .edit-container {
+    display: flex;
+    justify-content: space-evenly;
+ }
+
+ input {
+    padding-left: .5rem;
+    font-size: 1rem;
+ }
+
+ label {
+    margin-top: 1rem;
+ }
+
+ ::placeholder {
+    font-size: 1rem;
+    color: #4c4c4c;
+    opacity: .5;
+ }
+
+ .edit-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+ }
+
+ .add-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+ }
+
+ a {
+    font-weight: normal;
+    color: #000000;
+    font-size: 1rem;
+    text-decoration: none;
  }

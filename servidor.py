@@ -31,9 +31,10 @@ while True:
         response = index(request)
     elif route.startswith('delete'):
         response = index(request)
+    elif route.startswith('edit'):
+        response = index(request)
     else:
-        response = build_response()
-
+        response = build_response(code=404, reason='Not Found')
     
     client_connection.sendall(response)
 

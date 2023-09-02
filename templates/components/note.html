@@ -1,14 +1,22 @@
 <li class="card" id="{id}">
-    <div class="card-header">
-        <h3 class="card-title">{title}</h3>
-        <form method="post" action="delete" class="form-delete">
-            <input
-                class="btnremove"
-                type="submit"
-                name="id"
-                value="{id}"
-                >
-        </form>
+    <div class="header-box">
+        <div class="card-header1">
+            <h3 class="card-title">{title}</h3>
+        </div>
+        <div class="card-header2">
+            <form method="post" action="delete" class="form-delete">
+                <input
+                    type="hidden"
+                    name="id"
+                    value="{id}"
+                    >
+                <input class="img-remove" type="image" src="img/trash.png">
+            </form>
+
+            <a href="edit/{id}">
+                <img class="img-remove" src="img/edit.png" alt="img/edit.png">
+            </a>
+        </div>
     </div>
 
     <div class="card-content">

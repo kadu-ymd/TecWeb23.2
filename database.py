@@ -33,3 +33,9 @@ class Database:
     def delete(self, note_id):
         self.conn.execute(f'DELETE FROM note WHERE id = {note_id}')
         self.conn.commit()
+
+    def get_note(self, id):
+        cursor = self.conn.execute("SELECT id, title, content FROM note")
+        for linha in cursor:
+            if id == linha[0]:
+                return Note(id=id, title=linha[1], content=linha[2])
